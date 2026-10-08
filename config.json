@@ -1,0 +1,45 @@
+{
+  "host": "127.0.0.1",
+  "port": 8765,
+  "comfyui": {
+    "base_url": "http://127.0.0.1:8188",
+    "models_dir": "C:\\ComfyUI\\models",
+    "t2i_workflow": "C:\\ComfyUI\\user\\default\\workflows\\T2I.json",
+    "i2v_workflow": "C:\\ComfyUI\\user\\default\\workflows\\I2V.json"
+  },
+  "qwenedit": {
+    "base_url": "http://127.0.0.1:8741"
+  },
+  "t2i": {
+    "checkpoint": "model.safetensors",
+    "anima_lora": "lora.safetensors",
+    "width": 832,
+    "height": 1216,
+    "steps": 25,
+    "cfg": 3.5,
+    "sampler": "dpmpp_2m",
+    "scheduler": "sgm_uniform",
+    "negative_prompt": "",
+    "detailer": true,
+    "detailer_denoise": 0.35,
+    "detector": "bbox/face_yolov8m.pt"
+  },
+  "h3": {
+    "turbo": true,
+    "unet": "minimax_h3_fl2va_pruned_int8_convrot.safetensors",
+    "clip_name": "qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors",
+    "vae_video": "minimax_h3_video_vae_fp16.safetensors",
+    "vae_audio": "minimax_h3_audio_vae_fp32.safetensors",
+    "width": 480,
+    "height": 864,
+    "steps": 8,
+    "turbo_lora": "minimax_h3_turbo_v4_step600_ema.safetensors",
+    "turbo_lora_strength": 1.0,
+    "_note": "Turbo LoRA v4 + 8 steps at 480x864. Sage Attention omitted (Triton breaks on Windows portable ComfyUI)."
+  },
+  "generation": {
+    "require_idle_gpu": true,
+    "poll_interval_ms": 1200,
+    "_note": "When require_idle_gpu is true, FrameForge refuses to queue if ComfyUI or QwenEdit report active jobs."
+  }
+}
